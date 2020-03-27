@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="person" class="com.qy123.bean.Person">
+        <property name="id" value="23"></property>
+        <property name="age" value="12"></property>
+        <property name="name" value="zhangsan"></property>
+    </bean>
+    <!--静态工厂-->
+    <bean id="person1" class="com.qy123.Factor.PersonStaticFactor" factory-method="getPerson">
+        <constructor-arg value="zhangsan"></constructor-arg>
+    </bean>
+    <!--实例工厂-->
+    <bean id="intence" class="com.qy123.Factor.PersonInstanceFactor" ></bean>
+    <bean id="person2" class="com.qy123.bean.Person" factory-bean="intence" factory-method="getPerson">
+        <constructor-arg value="lisi"></constructor-arg>
+    </bean>
+</beans>
